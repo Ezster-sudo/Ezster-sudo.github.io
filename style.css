@@ -1,0 +1,99 @@
+header {
+  font-family: Abril Fatface;
+  position: relative;
+}
+
+#anakin {
+  width:100%;
+}
+
+header h2 {
+  font-size: 60px;
+  color: #222;
+  position: absolute;
+  bottom: 10px;
+  margin-bottom: 0;
+
+}
+
+header h1 {
+  color: #222;
+  position: absolute;
+  bottom: 80px;
+  margin-bottom: 0;
+
+}
+
+.main {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+}
+
+.headText {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+}
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  
+}
+
+p {
+  font-family: Josefin Sans;
+  color: #222;
+}
+
+ul {
+  font-family: Josefin Sans;
+  color: #222;
+}
+
+blockquote{
+  font-family: Abril Fatface;
+  font-size: 35px;
+  color: white;
+  background-color: #222;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left:50px;
+}
+
+blockquote:before {             
+  content: '\201C';
+  font-size:70px;
+  position: absolute;
+  left: 8px;
+  top:-10px;
+  
+}
+
+h3 {
+  font-family: Josefin Sans;
+  color: #222;
+  text-transform:uppercase;
+  
+}
+
+h4 {
+  font-family: Josefin Sans;
+  color: #222;
+ 
+}
+
+h5 {
+  font-family: Josefin Sans;
+  color: #222;
+  font-style: italic;
+}
+
+#personalInt{
+  border-top: 4px solid #222;
+}
