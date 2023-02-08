@@ -34,21 +34,26 @@ let data = [{
 
 let currentPhoto = 0;
 
-$('#photo').attr('src',data[currentPhoto].photo);
-$('#title').text(data[currentPhoto].title);
-$('#description').text(data[currentPhoto].description);
 
 
-//$(document).ready(function() {
+//$('#photo').attr('src',data[currentPhoto].photo);
+//$('#title').text(data[currentPhoto].title);
+//$('#description').text(data[currentPhoto].description);
+
+
 
     data.forEach((item, index) => {
       $('.thumbnails').append(`<div class="smalls" data-index="${index}"><img src="${item.photo}" class="smalldog"><h2 class ="title">${item.title}</h2></div>`);  
-      $('.smalls').click((event) => {
-        let indexClicked = $(event.target).attr('data-index');
-        let numberIndex = parseInt(indexClicked);
-        $('#clicked').text(data[indexClicked]);
+      $('.smalldog').click((event) => {
+       let indexClicked = $(event.target).attr('data-index');
+       let currentPhoto = parseInt(indexClicked);
+        
   });
 });
+
+let loadCurrent = (photoNumber) ;{
+    $('#photo').attr('src',data[currentPhoto].photo);
+  }
 
 
       //$('#photo').attr('src',data[currentPhoto].photo);
