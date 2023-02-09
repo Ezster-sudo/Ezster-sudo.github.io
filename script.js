@@ -1,4 +1,5 @@
-let data = [{
+let currentPhoto = 0;
+let imagesData = [{
     photo: 'pics/photo_1.jpg',
     title: 'Juhászkutyák',
     description: 'A kutyát évezredek óta használja az ember arra, hogy a haszonállatait terelje és védje, mely eredményeképpen létrejöttek a legkiválóbb pásztorkutyák / juhászkutyák.'
@@ -32,30 +33,32 @@ let data = [{
     description: 'Végigvonuló seregeik számára ugyanis kulcsfontosságú volt az ellátóvonalak és a raktárak őrzése.'  
 }]; 
 
-let currentPhoto = 0;
+$('#photo').attr('src',imagesData[currentPhoto].photo);
+$('#title').text(imagesData[currentPhoto].title);
+$('#description').text(imagesData[currentPhoto].description);
 
+let loadcurrentPhoto = (photoNumber) => {
+    $('#photo').attr('src', imagesData[photoNumber].photo);
+    $('#title').text(imagesData[photoNumber].title);
+    $('#description').text(imagesData[photoNumber].description);
+  }
+   
+  $('#right-arrow').click(() => {
+    if(currentPhoto < imagesData.length) {
+    currentPhoto++;
+    }
+    loadcurrentPhoto(currentPhoto);
+  })
 
+  $('#left-arrow').click(() => {
+    if(currentPhoto > 0) { 
+      currentPhoto--; 
+    }
+    loadcurrentPhoto(currentPhoto);
+  });
 
-//$('#photo').attr('src',data[currentPhoto].photo);
-//$('#title').text(data[currentPhoto].title);
-//$('#description').text(data[currentPhoto].description);
-
-
-
-    data.forEach((item, index) => {
+imagesData.forEach((item, index) => {
       $('.thumbnails').append(`<div class="smalls" data-index="${index}"><img src="${item.photo}" class="smalldog"><h2 class ="title">${item.title}</h2></div>`);  
-      $('.smalldog').click((event) => {
-       let indexClicked = $(event.target).attr('data-index');
-       let currentPhoto = parseInt(indexClicked);
+      
         
   });
-});
-
-let loadCurrent = (photoNumber) ;{
-    $('#photo').attr('src',data[currentPhoto].photo);
-  }
-
-
-      //$('#photo').attr('src',data[currentPhoto].photo);
-    //$('#title').text(data[currentPhoto].title);
-    //$('#description').text(data[currentPhoto].description);
