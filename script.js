@@ -58,5 +58,16 @@ let loadcurrentPhoto = (photoNumber) => {
   });
 
 imagesData.forEach((item, index) => {
-      $('.thumbnails').append(`<div class="smalls" data-index="${index}"><img src="${item.photo}" class="smalldog"><h2 class ="title">${item.title}</h2></div>`);                
-  });
+    $('.thumbnails').append(`<div class="smalls" data-index="${index}"><img src="${item.photo}" class="smalldog"><h2 class ="title">${item.title}</h2></div>`);                
+         
+    $('.smalls').click((event) => {
+    let indexClicked =
+    $(event.target).parent().attr('data-index');
+    let numberIndex = parseInt(indexClicked);
+    $('#photo').attr('src', imagesData[numberIndex].photo);
+    $('#title').text(imagesData[numberIndex].title);
+    $('#description').text(imagesData[numberIndex].description);
+    });
+    });
+
+    
