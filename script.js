@@ -43,13 +43,13 @@ let loadcurrentPhoto = (photoNumber) => {
     $('#description').text(imagesData[photoNumber].description);
   }
    
-  $('#right-arrow').click(() => {
+  $('#right-click').click(() => {
     currentPhoto++;
     currentPhoto %= imagesData.length; 
     loadcurrentPhoto(currentPhoto);
   });
 
-  $('#left-arrow').click(() => {
+  $('#left-click').click(() => {
     if(currentPhoto > 0) { 
       currentPhoto--; 
     } else {
@@ -58,11 +58,9 @@ let loadcurrentPhoto = (photoNumber) => {
   });
 
 imagesData.forEach((item, index) => {
-    $('.thumbnails').append(`<div class="smalls" data-index="${index}"><img src="${item.photo}" class="smalldog"><h2 class ="title">${item.title}</h2></div>`);                
-         
+    $('.thumbnails').append(`<div class="smalls" data-index="${index}"><h2 class ="title">${item.title}</h2><img src="${item.photo}" class="smalldog"></div>`);                         
     $('.smalls').click((event) => {
-    let indexClicked =
-    $(event.target).parent().attr('data-index');
+    let indexClicked = $(event.target).parent().attr('data-index');
     let numberIndex = parseInt(indexClicked);
     $('#photo').attr('src', imagesData[numberIndex].photo);
     $('#title').text(imagesData[numberIndex].title);
