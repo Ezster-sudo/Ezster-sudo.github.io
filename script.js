@@ -44,21 +44,19 @@ let loadcurrentPhoto = (photoNumber) => {
   }
    
   $('#right-arrow').click(() => {
-    if(currentPhoto < imagesData.length) {
     currentPhoto++;
-    }
+    currentPhoto %= imagesData.length; 
     loadcurrentPhoto(currentPhoto);
-  })
+  });
 
   $('#left-arrow').click(() => {
     if(currentPhoto > 0) { 
       currentPhoto--; 
-    }
+    } else {
+    currentPhoto = imagesData.length - 1;}
     loadcurrentPhoto(currentPhoto);
   });
 
 imagesData.forEach((item, index) => {
-      $('.thumbnails').append(`<div class="smalls" data-index="${index}"><img src="${item.photo}" class="smalldog"><h2 class ="title">${item.title}</h2></div>`);  
-      
-        
+      $('.thumbnails').append(`<div class="smalls" data-index="${index}"><img src="${item.photo}" class="smalldog"><h2 class ="title">${item.title}</h2></div>`);                
   });
