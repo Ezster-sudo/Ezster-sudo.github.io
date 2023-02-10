@@ -81,7 +81,7 @@ p#description {
 
 .smalls {
   width: 60px;
-  height: 60px;
+  height: 73px;
 }
 
 .thumbnails {
@@ -109,17 +109,25 @@ h2 {
   font-family: 'Roboto Mono', monospace;
   white-space: nowrap;
   text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 div.smalls:hover .title {
   visibility: visible;
   display: block;
   font-size: 10px;
-  color: white;
-  background-color: black;
+  color: black;
+  background-color: rgb(255, 255, 255);
   font-family: 'Roboto Mono', monospace;
   white-space: nowrap;
   position: relative;
   padding: 5px;
   text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.active {
+  box-shadow: 0 10px 10px -6px rgb(0, 0, 0);
 }

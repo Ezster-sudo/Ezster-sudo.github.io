@@ -33,14 +33,23 @@ let imagesData = [{
     description: 'Végigvonuló seregeik számára ugyanis kulcsfontosságú volt az ellátóvonalak és a raktárak őrzése.'  
 }]; 
 
-$('#photo').attr('src',imagesData[currentPhoto].photo);
-$('#title').text(imagesData[currentPhoto].title);
-$('#description').text(imagesData[currentPhoto].description);
-
-let loadcurrentPhoto = (photoNumber) => {
-    $('#photo').attr('src', imagesData[photoNumber].photo);
-    $('#title').text(imagesData[photoNumber].title);
-    $('#description').text(imagesData[photoNumber].description);
+$(document).ready(function() {
+imagesData.forEach((item, index) => {
+    $('.thumbnails').append(`<div class="smalls" data-index="${index}"><h2 class ="title">${item.title}</h2><img src="${item.photo}" class="smalldog"></div>`);                         
+    $('.smalls').click((event) => {
+    currentPhoto = parseInt($(event.target).parent().attr('data-index'));
+    loadcurrentPhoto(currentPhoto);
+  });
+  loadcurrentPhoto(currentPhoto);
+    });
+  })
+  
+let loadcurrentPhoto = (numberIndex) => {
+    $('#photo').attr('src', imagesData[numberIndex].photo);
+    $('#title').text(imagesData[numberIndex].title);
+    $('#description').text(imagesData[numberIndex].description);
+    $('.smalls.active').removeClass('active');
+    $('.smalls[data-index=' + currentPhoto + ']').addClass('active');
   }
    
   $('#right-click').click(() => {
@@ -56,16 +65,3 @@ let loadcurrentPhoto = (photoNumber) => {
     currentPhoto = imagesData.length - 1;}
     loadcurrentPhoto(currentPhoto);
   });
-
-imagesData.forEach((item, index) => {
-    $('.thumbnails').append(`<div class="smalls" data-index="${index}"><h2 class ="title">${item.title}</h2><img src="${item.photo}" class="smalldog"></div>`);                         
-    $('.smalls').click((event) => {
-    let indexClicked = $(event.target).parent().attr('data-index');
-    let numberIndex = parseInt(indexClicked);
-    $('#photo').attr('src', imagesData[numberIndex].photo);
-    $('#title').text(imagesData[numberIndex].title);
-    $('#description').text(imagesData[numberIndex].description);
-    });
-    });
-
-    
