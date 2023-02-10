@@ -52,11 +52,12 @@ let loadcurrentPhoto = (numberIndex) => {
     $('.smalls[data-index=' + currentPhoto + ']').addClass('active');
   }
    
+  
   $('#right-click').click(() => { 
-    if(currentPhoto < imagesData.length) { 
-      currentPhoto++; 
-    }
-    else {currentPhoto = 0}
+    if(currentPhoto < 8){ 
+      currentPhoto ++;
+    } else {
+      currentPhoto = imagesData.length - 8;}
     loadcurrentPhoto(currentPhoto);
   })
 
@@ -67,4 +68,4 @@ let loadcurrentPhoto = (numberIndex) => {
     } else {
     currentPhoto = imagesData.length - 1;}
     loadcurrentPhoto(currentPhoto);
-  });
+  })
