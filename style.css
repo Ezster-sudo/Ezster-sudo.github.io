@@ -108,7 +108,7 @@ h2 {
   background-color: black;
   font-family: 'Roboto Mono', monospace;
   white-space: nowrap;
-  position: relative;
+  text-align: center;
 }
 
 div.smalls:hover .title {
@@ -121,4 +121,5 @@ div.smalls:hover .title {
   white-space: nowrap;
   position: relative;
   padding: 5px;
+  text-align: center;
 }
