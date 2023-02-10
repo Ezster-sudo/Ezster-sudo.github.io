@@ -35,15 +35,15 @@ let imagesData = [{
 
 $(document).ready(function() {
 imagesData.forEach((item, index) => {
+  loadcurrentPhoto(currentPhoto);
     $('.thumbnails').append(`<div class="smalls" data-index="${index}"><h2 class ="title">${item.title}</h2><img src="${item.photo}" class="smalldog"></div>`);                         
     $('.smalls').click((event) => {
     currentPhoto = parseInt($(event.target).parent().attr('data-index'));
     loadcurrentPhoto(currentPhoto);
   });
-  loadcurrentPhoto(currentPhoto);
     });
   })
-  
+
 let loadcurrentPhoto = (numberIndex) => {
     $('#photo').attr('src', imagesData[numberIndex].photo);
     $('#title').text(imagesData[numberIndex].title);
@@ -52,11 +52,14 @@ let loadcurrentPhoto = (numberIndex) => {
     $('.smalls[data-index=' + currentPhoto + ']').addClass('active');
   }
    
-  $('#right-click').click(() => {
-    currentPhoto++;
-    currentPhoto %= imagesData.length; 
+  $('#right-click').click(() => { 
+    if(currentPhoto < imagesData.length) { 
+      currentPhoto++; 
+    }
+    else {currentPhoto = 0}
     loadcurrentPhoto(currentPhoto);
-  });
+  })
+
 
   $('#left-click').click(() => {
     if(currentPhoto > 0) { 
