@@ -42,7 +42,7 @@ imagesData.forEach((item, index) => {
     loadcurrentPhoto(currentPhoto);
   });
     });
-  })
+  });
 
 let loadcurrentPhoto = (numberIndex) => {
     $('#photo').attr('src', imagesData[numberIndex].photo);
@@ -50,16 +50,16 @@ let loadcurrentPhoto = (numberIndex) => {
     $('#description').text(imagesData[numberIndex].description);
     $('.smalls.active').removeClass('active');
     $('.smalls[data-index=' + currentPhoto + ']').addClass('active');
-  }
+  };
    
   
   $('#right-click').click(() => { 
-    if(currentPhoto < 8){ 
-      currentPhoto ++;
-    } else {
-      currentPhoto = imagesData.length - 8;}
+    currentPhoto++;
+    if(currentPhoto >= imagesData.length){ 
+    currentPhoto = 0;
+  }
     loadcurrentPhoto(currentPhoto);
-  })
+  });
 
 
   $('#left-click').click(() => {
@@ -68,4 +68,4 @@ let loadcurrentPhoto = (numberIndex) => {
     } else {
     currentPhoto = imagesData.length - 1;}
     loadcurrentPhoto(currentPhoto);
-  })
+  });
